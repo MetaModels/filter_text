@@ -115,8 +115,6 @@ class MetaModelFilterSettingText extends MetaModelFilterSetting
 			'GET: '.$this->get('urlparam')
 			);
 
-		$arrOptions = $objAttribute->getFilterOptions();
-
 		return array(
 			$this->getParamName() => array
 			(
