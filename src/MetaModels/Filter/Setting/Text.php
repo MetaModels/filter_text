@@ -17,6 +17,7 @@
  * @author       David Maack <david.maack@arcor.de>
  * @author       Stefan Heimes <stefan_heimes@hotmail.com>
  * @author       Christopher Boelter <christopher@boelter.eu>
+ * @author       Ingolf Steinhardt <info@e-spin.de> 
  * @copyright    The MetaModels team.
  * @license      LGPL.
  * @filesource
@@ -165,6 +166,7 @@ class Text extends SimpleLookup
                 ($this->get('label') ? $this->get('label') : $this->getParamName()),
                 'GET: ' . $this->getParamName()
             ),
+            'placeholder' => $this->get('placeholder'),            
             'inputType' => 'text',
             'count'     => $arrCount,
             'showCount' => $objFrontendFilterOptions->isShowCountValues(),
