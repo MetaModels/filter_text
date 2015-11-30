@@ -60,11 +60,11 @@ class Text extends SimpleLookup
     }
 
     /**
-     * Retrieve the filter parameter name to react on.
+     * Retrieve the filter parameter column name to react on.
      *
      * @return string
      */
-    protected function getParamName()
+    protected function getParamColName()
     {
         if ($this->get('urlparam')) {
             return $this->get('urlparam');
@@ -77,6 +77,21 @@ class Text extends SimpleLookup
 
         return null;
     }
+    
+    /**
+     * Retrieve the filter parameter name to react on.
+     *
+     * @return string
+     */
+    protected function getParamName()
+    {
+        $objAttribute = $this->getMetaModel()->getAttributeById($this->get('attr_id'));
+        if ($objAttribute) {
+            return $objAttribute->getName();
+        }
+
+        return null;
+    }    
 
     /**
      * {@inheritdoc}
@@ -85,7 +100,7 @@ class Text extends SimpleLookup
     {
         $objMetaModel  = $this->getMetaModel();
         $objAttribute  = $objMetaModel->getAttributeById($this->get('attr_id'));
-        $strParamName  = $this->getParamName();
+        $strParamName  = $this->getParamColName();
         $strParamValue = $arrFilterUrl[$strParamName];
         $strTextsearch = $this->get('textsearch');
 
@@ -124,7 +139,7 @@ class Text extends SimpleLookup
      */
     public function getParameters()
     {
-        return ($strParamName = $this->getParamName()) ? array($strParamName) : array();
+        return ($strParamName = $this->getParamColName()) ? array($strParamName) : array();
     }
 
     /**
@@ -132,9 +147,9 @@ class Text extends SimpleLookup
      */
     public function getParameterFilterNames()
     {
-        if (($strParamName = $this->getParamName())) {
+        if (($strParamName = $this->getParamColName())) {
             return array(
-                $strParamName => ($this->get('label') ? $this->get('label') : $this->getParamName())
+                $strParamName => ($this->get('label') ? $this->get('label') : $this->getParamColName())
             );
         }
 
@@ -156,27 +171,27 @@ class Text extends SimpleLookup
         }
 
         $arrReturn = array();
-        $this->addFilterParam($this->getParamName());
+        $this->addFilterParam($this->getParamColName());
 
         // Address search.
         $arrCount  = array();
         $arrWidget = array(
             'label'     => array(
                 ($this->get('label') ? $this->get('label') : $this->getParamName()),
-                'GET: ' . $this->getParamName()
+                'GET: ' . $this->getParamColName()
             ),
             'inputType' => 'text',
             'count'     => $arrCount,
             'showCount' => $objFrontendFilterOptions->isShowCountValues(),
             'eval'      => array(
                 'colname'  => $this->getMetaModel()->getAttributeById($this->get('attr_id'))->getColname(),
-                'urlparam' => $this->getParamName(),
+                'urlparam' => $this->getParamColName(),
                 'template' => $this->get('template'),
             )
         );
 
         // Add filter.
-        $arrReturn[$this->getParamName()] =
+        $arrReturn[$this->getParamColName()] =
             $this->prepareFrontendFilterWidget($arrWidget, $arrFilterUrl, $arrJumpTo, $objFrontendFilterOptions);
 
         return $arrReturn;
