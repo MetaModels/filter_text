@@ -60,25 +60,6 @@ class Text extends SimpleLookup
     }
 
     /**
-     * Retrieve the filter parameter name to react on.
-     *
-     * @return string
-     */
-    protected function getParamName()
-    {
-        if ($this->get('urlparam')) {
-            return $this->get('urlparam');
-        }
-
-        $objAttribute = $this->getMetaModel()->getAttributeById($this->get('attr_id'));
-        if ($objAttribute) {
-            return $objAttribute->getColName();
-        }
-
-        return null;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function prepareRules(IFilter $objFilter, $arrFilterUrl)
@@ -111,34 +92,11 @@ class Text extends SimpleLookup
         }
 
         if ($objAttribute && $strParamName && $strParamValue) {
-
             $objFilter->addFilterRule(new SearchAttribute($objAttribute, $strWhat));
             return;
         }
 
         $objFilter->addFilterRule(new StaticIdList(null));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getParameters()
-    {
-        return ($strParamName = $this->getParamName()) ? array($strParamName) : array();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getParameterFilterNames()
-    {
-        if (($strParamName = $this->getParamName())) {
-            return array(
-                $strParamName => ($this->get('label') ? $this->get('label') : $this->getParamName())
-            );
-        }
-
-        return array();
     }
 
     /**
@@ -155,6 +113,10 @@ class Text extends SimpleLookup
             return array();
         }
 
+        if (!($attribute = $this->getFilteredAttribute())) {
+            return array();
+        }
+
         $arrReturn = array();
         $this->addFilterParam($this->getParamName());
 
@@ -162,14 +124,14 @@ class Text extends SimpleLookup
         $arrCount  = array();
         $arrWidget = array(
             'label'     => array(
-                ($this->get('label') ? $this->get('label') : $this->getParamName()),
+                $this->getLabel(),
                 'GET: ' . $this->getParamName()
             ),
             'inputType' => 'text',
             'count'     => $arrCount,
             'showCount' => $objFrontendFilterOptions->isShowCountValues(),
             'eval'      => array(
-                'colname'  => $this->getMetaModel()->getAttributeById($this->get('attr_id'))->getColname(),
+                'colname'  => $attribute->getColname(),
                 'urlparam' => $this->getParamName(),
                 'template' => $this->get('template'),
             )
