@@ -120,7 +120,7 @@ class Text extends SimpleLookup
         $arrCount  = array();
         $arrWidget = array(
             'label'     => array(
-                ($this->get('label') ? $this->get('label') : $this->getParamName()),
+                $this->getLabel(),
                 'GET: ' . $this->getParamName()
             ),
             'inputType' => 'text',
