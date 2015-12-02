@@ -113,6 +113,10 @@ class Text extends SimpleLookup
             return array();
         }
 
+        if (!($attribute = $this->getFilteredAttribute())) {
+            return array();
+        }
+
         $arrReturn = array();
         $this->addFilterParam($this->getParamName());
 
@@ -127,7 +131,7 @@ class Text extends SimpleLookup
             'count'     => $arrCount,
             'showCount' => $objFrontendFilterOptions->isShowCountValues(),
             'eval'      => array(
-                'colname'  => $this->getMetaModel()->getAttributeById($this->get('attr_id'))->getColname(),
+                'colname'  => $attribute->getColname(),
                 'urlparam' => $this->getParamName(),
                 'template' => $this->get('template'),
             )
