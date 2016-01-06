@@ -17,6 +17,7 @@
  * @author       David Maack <david.maack@arcor.de>
  * @author       Stefan Heimes <stefan_heimes@hotmail.com>
  * @author       Christopher Boelter <christopher@boelter.eu>
+ * @author       Henry Lamorski <henry.lamorski@mailbox.org>
  * @copyright    The MetaModels team.
  * @license      LGPL.
  * @filesource
@@ -26,6 +27,7 @@ namespace MetaModels\Filter\Setting;
 
 use MetaModels\Filter\IFilter;
 use MetaModels\Filter\Rules\SearchAttribute;
+use MetaModels\Filter\Rules\SimpleQuery;
 use MetaModels\Filter\Rules\StaticIdList;
 use MetaModels\FrontendIntegration\FrontendFilterOptions;
 
@@ -92,6 +94,18 @@ class Text extends SimpleLookup
         }
 
         if ($objAttribute && $strParamName && $strParamValue) {
+
+			if($strTextsearch == "against") {
+			
+				$objFilter->addFilterRule(new SimpleQuery(
+                                sprintf(
+                                'SELECT id FROM %s WHERE (MATCH(%s) AGAINST(?))',
+                                $this->getMetaModel()->getTableName(),$strParamName),
+                                array($strParamValue)
+    	                        ));
+				return;
+			}
+
             $objFilter->addFilterRule(new SearchAttribute($objAttribute, $strWhat));
             return;
         }
