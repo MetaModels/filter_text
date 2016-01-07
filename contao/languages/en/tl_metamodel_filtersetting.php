@@ -24,7 +24,7 @@ $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['typenames']['text']     = 'Te
 /**
  * fields
  */
-$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch']   = array('Search type', 'Finding text parts. Fulltext seatch needs a fulltext-index');
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch']   = array('Search type', 'Finding text parts. Fulltext search needs a fulltext-index');
 
 
 /**
