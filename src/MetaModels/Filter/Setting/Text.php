@@ -95,7 +95,7 @@ class Text extends SimpleLookup
 
         if ($objAttribute && $strParamName && $strParamValue) {
 
-			if($strTextsearch == "against") {
+			if($strTextsearch == 'against') {
 			
 				$objFilter->addFilterRule(new SimpleQuery(
                                 sprintf(
