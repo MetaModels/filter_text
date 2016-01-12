@@ -1,7 +1,7 @@
 {
     "name":"henrylamorski/filter_text",
     "description":"MetaModels text filter with fulltextsearch",
-    "keywords":["contao", "metamodels", "filter", "timestamp"],
+    "keywords":["contao", "metamodels", "filter", "text"],
     "type":"contao-module",
     "homepage":"http://now.metamodel.me/",
     "license":"LGPL-3.0+",
