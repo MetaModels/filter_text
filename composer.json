@@ -1,6 +1,6 @@
 {
-  "name": "metamodels/filter_text",
-  "description": "MetaModels text filter",
+  "name": "henrylamorski/filter_text",
+  "description": "MetaModels text filter with fulltextsearch",
   "keywords": [
     "contao",
     "metamodels",
