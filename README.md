@@ -8,9 +8,8 @@ Text filter
 
 MetaModels text filter with fulltext support.
 
-/**
- * useage for fulltext filter
- */
+useage for fulltext filter
+
 1. Add a fulltext-index to all columns of your metamodel-table. You have to login to your database-server or use a tool e.g. phpmyadmin to solve this step.
 mysql> ALTER TABLE `mm_mytable` ADD FULLTEXT(`my_fency_column`);
 optional add more fulltext indexes to columns
