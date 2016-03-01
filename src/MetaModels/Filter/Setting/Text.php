@@ -102,8 +102,8 @@ class Text extends SimpleLookup
                 $objFilter->addFilterRule(new SimpleQuery(
                     sprintf(
                         'SELECT id FROM %s WHERE (MATCH(%s%s) AGAINST(?))',
-                        $this->getMetaModel()->getTableName(), 
-                        $strParamName, 
+                        $this->getMetaModel()->getTableName(),
+                        $strParamName,
                         $strExtendedFields
                     ),
                     array($strParamValue)));
