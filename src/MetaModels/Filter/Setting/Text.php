@@ -100,11 +100,15 @@ class Text extends SimpleLookup
                 $strExtendedFields = $this->get('extendFields') ? ','.$this->get('extendFields') : '';
 
                 $objFilter->addFilterRule(new SimpleQuery(
-                sprintf('SELECT id FROM %s WHERE (MATCH(%s%s) AGAINST(?))',
-                $this->getMetaModel()->getTableName(),$strParamName,$strExtendedFields),
-                array($strParamValue)));
+                    sprintf('SELECT id FROM %s WHERE (MATCH(%s%s) AGAINST(?))',
+                    $this->getMetaModel()->getTableName(), 
+                    $strParamName, 
+                    $strExtendedFields),
+                    array($strParamValue)));
                 return;
-			}
+
+            }
+
             $objFilter->addFilterRule(new SearchAttribute($objAttribute, $strWhat));
             return;
         }
