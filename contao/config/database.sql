@@ -15,5 +15,6 @@
 --
 
 CREATE TABLE `tl_metamodel_filtersetting` (
-  `textsearch` varchar(32) NOT NULL default ''
+  `textsearch` varchar(32) NOT NULL default '',
+  `extendFields` text NOT NULL default '',
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
