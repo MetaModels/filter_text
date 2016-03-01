@@ -8,18 +8,9 @@ Text filter
 
 MetaModels text filter with fulltext support.
 
-useage for fulltext filter
+1. in contao-backend, create a text-filter with searchtype "fulltextsearch (SQL-Against)"
 
-1. Add a fulltext-index to all columns of your metamodel-table. You have to login to your database-server or use a tool e.g. phpmyadmin to solve this step.
-mysql> ALTER TABLE `mm_mytable` ADD FULLTEXT(`my_fency_column`);
-optional add more fulltext indexes to columns
-mysql> ALTER TABLE `mm_mytable` ADD FULLTEXT(`my_foobar_column`);
-mysql> ALTER TABLE `mm_mytable` ADD FULLTEXT(`my_super_important_column`);
-
-
-2. on contao-backend, create a text-filter with searchtype "fulltextsearch (SQL-Against)"
-
-3. optional: add other columns, comma seperated to fulltext search:
+2. optional: add other columns, comma seperated to fulltext search:
 Filtersetting "extendFields": my_foobar_columns,my_super_importan_column
 
  
