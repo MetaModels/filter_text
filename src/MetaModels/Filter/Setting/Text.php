@@ -97,7 +97,7 @@ class Text extends SimpleLookup
 
             if ($strTextsearch == 'against') {
 
-                $strExtendedFields = $this->get('extendFields') ? ",".$this->get('extendFields') : '';
+                $strExtendedFields = $this->get('extendFields') ? ','.$this->get('extendFields') : '';
 
                 $objFilter->addFilterRule(new SimpleQuery(
                 sprintf('SELECT id FROM %s WHERE (MATCH(%s%s) AGAINST(?))',
