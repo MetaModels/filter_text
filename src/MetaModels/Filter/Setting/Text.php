@@ -106,7 +106,8 @@ class Text extends SimpleLookup
                         $strParamName,
                         $strExtendedFields
                     ),
-                    array($strParamValue)));
+                    array($strParamValue)
+                ));
                 return;
 
             }
