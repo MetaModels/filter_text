@@ -15,6 +15,7 @@
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['beginswith'] = 'beginnt mit Suchbegriff';
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['endswith']   = 'endet mit Suchbegriff';
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['exact']      = 'exakte Suche';
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['against']    = 'Volltextsuche (SQL against)';
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch']['0']          = 'Suchtyp';
-$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch']['1']          = 'Findet Textstellen.';
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch']['1']          = 'Findet Textstellen. Volltextsuche benötigt Fulltext-Index.';
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['typenames']['text']        = 'Textfilter';

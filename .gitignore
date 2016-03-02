@@ -17,3 +17,6 @@ composer.lock
 
 # build
 build/
+
+# misc
+*~

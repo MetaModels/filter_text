@@ -6,4 +6,11 @@
 Text filter
 ===========
 
-MetaModels text filter
+MetaModels text filter with fulltext support.
+
+1. in contao-backend, create a text-filter with searchtype "fulltextsearch (SQL-Against)"
+
+2. optional: add other columns, comma seperated to fulltext search:
+Filtersetting "extendFields": my_foobar_columns,my_super_importan_column
+
+ 
