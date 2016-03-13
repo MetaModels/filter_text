@@ -15,6 +15,7 @@
  * @author       Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author       David Molineus <mail@netzmacht.de>
  * @author       Christopher Boelter <christopher@boelter.eu>
+ * @author       Ingolf Steinhardt <info@e-spin.de>
  * @copyright    The MetaModels team.
  * @license      LGPL.
  * @filesource
@@ -22,7 +23,7 @@
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['metapalettes']['text extends default'] = array
 (
-	'+config' => array('attr_id', 'urlparam', 'label', 'template', 'textsearch'),
+	'+config' => array('attr_id', 'urlparam', 'label', 'template', 'textsearch', 'placeholder'),
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['textsearch'] = array
@@ -33,4 +34,12 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['textsearch'] = array
 	'options'                 => array('exact','beginswith','endswith'),
 	'reference'               => $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references'],
 	'eval'                    => array('tl_class' => 'w50', 'includeBlankOption' => true)
+);
+
+$GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['placeholder'] = array
+(
+	'label'     => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['placeholder'],
+	'exclude'   => true,
+	'inputType' => 'text',
+	'eval'      => array('tl_class' => 'w50')
 );

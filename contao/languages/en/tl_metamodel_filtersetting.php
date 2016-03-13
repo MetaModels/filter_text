@@ -10,6 +10,7 @@
  * @package    MetaModels
  * @subpackage FilterText
  * @author     Christian de la Haye <service@delahaye.de>
+ * @author     Ingolf Steinhardt <info@e-spin.de> 
  * @copyright  The MetaModels team.
  * @license    LGPL.
  * @filesource
@@ -25,6 +26,7 @@ $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['typenames']['text']     = 'Te
  * fields
  */
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch']   = array('Search type', 'Finding text parts.');
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['placeholder']  = array('Placeholder', 'Show this text as long as the field is empty (requires HTML5).');
 
 
 /**
