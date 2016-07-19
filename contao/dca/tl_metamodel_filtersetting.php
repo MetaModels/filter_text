@@ -22,15 +22,23 @@
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['metapalettes']['text extends default'] = array
 (
-	'+config' => array('attr_id', 'urlparam', 'label', 'template', 'textsearch'),
+    '+config' => array('attr_id', 'urlparam', 'label', 'template', 'textsearch', 'delimiter'),
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['textsearch'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch'],
-	'exclude'                 => true,
-	'inputType'               => 'select',
-	'options'                 => array('exact','beginswith','endswith'),
-	'reference'               => $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references'],
-	'eval'                    => array('tl_class' => 'w50', 'includeBlankOption' => true)
+    'label'                   => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch'],
+    'exclude'                 => true,
+    'inputType'               => 'select',
+    'options'                 => array('exact','beginswith','endswith','any','all'),
+    'reference'               => $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references'],
+    'eval'                    => array('tl_class' => 'w50', 'includeBlankOption' => true)
+);
+
+$GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['delimiter'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['delimiter'],
+    'exclude'                 => true,
+    'inputType'               => 'text',
+    'eval'                    => array('tl_class' => 'w50')
 );
