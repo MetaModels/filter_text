@@ -26,6 +26,7 @@ $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['typenames']['text'] = 'Text f
  * fields
  */
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch'] = array('Search type', 'Finding text parts.');
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['delimiter']  = array('Delimeter', 'Set delimeter for search type "any" or "all" - default delimeter is space.');
 
 
 /**
@@ -34,5 +35,5 @@ $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch'] = array('Search 
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['exact']      = 'exact search';
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['beginswith'] = 'begins with search term';
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['endswith']   = 'ends with search term';
-$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['any']        = 'any word';
-$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['all']        = 'all words';
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['any']        = 'search any word (OR)';
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['all']        = 'search all words (AND)';

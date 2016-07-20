@@ -22,7 +22,16 @@
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['metapalettes']['text extends default'] = array
 (
-    '+config' => array('attr_id', 'urlparam', 'label', 'template', 'textsearch', 'delimiter'),
+    '+config' => array('attr_id', 'urlparam', 'label', 'template', 'textsearch'),
+);
+
+$GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['metasubselectpalettes'] = array
+(
+    'textsearch' => array
+    (
+      'any' => array('delimiter'),
+      'all' => array('delimiter')
+    )
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['textsearch'] = array
@@ -32,7 +41,7 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['textsearch'] = array
     'inputType'               => 'select',
     'options'                 => array('exact','beginswith','endswith','any','all'),
     'reference'               => $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references'],
-    'eval'                    => array('tl_class' => 'w50', 'includeBlankOption' => true)
+    'eval'                    => array('tl_class' => 'w50', 'includeBlankOption' => true, 'submitOnChange' => true)
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['delimiter'] = array
