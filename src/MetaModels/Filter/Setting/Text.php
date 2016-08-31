@@ -81,12 +81,15 @@ class Text extends SimpleLookup
     }
 
     /**
-     * @param string   $strTextSearch
+     * Make a simple search with a like.
      *
-     * @param IFilter  $objFilter    The filter to append the rules to.
+     * @param string   $strTextSearch The mode for the search.
      *
-     * @param string[] $arrFilterUrl The parameters to evaluate.
+     * @param IFilter  $objFilter     The filter to append the rules to.
      *
+     * @param string[] $arrFilterUrl  The parameters to evaluate.
+     *
+     * @return void
      */
     private function doSimpleSearch($strTextSearch, $objFilter, $arrFilterUrl)
     {
@@ -126,12 +129,15 @@ class Text extends SimpleLookup
     }
 
     /**
-     * @param string   $strTextSearch
+     * Do a complex search with each word. Search for all words or for any word.
      *
-     * @param IFilter  $objFilter    The filter to append the rules to.
+     * @param string   $strTextSearch The mode any or all.
      *
-     * @param string[] $arrFilterUrl The parameters to evaluate.
+     * @param IFilter  $objFilter     The filter to append the rules to.
      *
+     * @param string[] $arrFilterUrl  The parameters to evaluate.
+     *
+     * @return void
      */
     private function doComplexSearch($strTextSearch, $objFilter, $arrFilterUrl)
     {
@@ -151,6 +157,10 @@ class Text extends SimpleLookup
             case 'all':
                 $words        = $this->getWords($strParamValue);
                 $parentFilter = new ConditionAnd();
+                break;
+
+            default:
+                // Do nothing. Because the parent function saved us. The value have to be any or all.
                 break;
         }
 

@@ -21,12 +21,14 @@
  */
 
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['typenames']['text']        = 'Text filter';
-$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch']               = 'Search type';
-$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch']               = 'Finding text parts.';
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch'][0]            = 'Search type';
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch'][1]            = 'Finding text parts.';
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['placeholder'][0]           = 'Placeholder';
-$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['placeholder'][1]           = 'Show this text as long as the field is empty (requires HTML5).';
-$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['delimiter'][0]             = 'Delimeter'; 
-$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['delimiter'][1]             = 'Set delimeter for search type "any" or "all" - default delimeter is space.'; array('Delimeter', 'Set delimeter for search type "any" or "all" - default delimeter is space.';
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['placeholder'][1]           =
+    'Show this text as long as the field is empty (requires HTML5).';
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['delimiter'][0]             = 'Delimeter';
+$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['delimiter'][1]             =
+    'Set delimeter for search type "any" or "all" - default delimeter is space.';
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['exact']      = 'exact search';
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['beginswith'] = 'begins with search term';
 $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references']['endswith']   = 'ends with search term';
