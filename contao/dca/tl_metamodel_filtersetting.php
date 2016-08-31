@@ -33,9 +33,17 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['textsearch'] = array
     'label'                   => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch'],
     'exclude'                 => true,
     'inputType'               => 'select',
-    'options'                 => array('exact','beginswith','endswith'),
+    'options'                 => array('exact','beginswith','endswith','any','all'),
     'reference'               => $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references'],
-    'eval'                    => array('tl_class' => 'w50', 'includeBlankOption' => true)
+    'eval'                    => array('tl_class' => 'w50', 'includeBlankOption' => true, 'submitOnChange' => true)
+);
+
+$GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['delimiter'] = array
+(
+    'label'                   => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['delimiter'],
+    'exclude'                 => true,
+    'inputType'               => 'text',
+    'eval'                    => array('tl_class' => 'w50')
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['placeholder'] = array
