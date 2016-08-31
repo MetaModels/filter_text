@@ -19,6 +19,7 @@
  * @author     David Maack <david.maack@arcor.de>
  * @author     Stefan Heimes <stefan_heimes@hotmail.com>
  * @author     Christopher Boelter <christopher@boelter.eu>
+ * @author     Ingolf Steinhardt <info@e-spin.de>
  * @copyright  2012-2016 The MetaModels team.
  * @license    https://github.com/MetaModels/filter_text/blob/master/LICENSE LGPL-3.0
  * @filesource
@@ -117,7 +118,7 @@ class Text extends SimpleLookup
         $arrReturn = array();
         $this->addFilterParam($this->getParamName());
 
-        // Address search.
+        // Text search.
         $arrCount  = array();
         $arrWidget = array(
             'label'     => array(
@@ -128,9 +129,10 @@ class Text extends SimpleLookup
             'count'     => $arrCount,
             'showCount' => $objFrontendFilterOptions->isShowCountValues(),
             'eval'      => array(
-                'colname'  => $attribute->getColName(),
-                'urlparam' => $this->getParamName(),
-                'template' => $this->get('template'),
+                'colname'     => $attribute->getColname(),
+                'urlparam'    => $this->getParamName(),
+                'template'    => $this->get('template'),
+                'placeholder' => $this->get('placeholder'),
             )
         );
 
