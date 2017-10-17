@@ -3,7 +3,7 @@
 /**
  * This file is part of MetaModels/filter_text.
  *
- * (c) 2012-2017 The MetaModels team.
+ * (c) 2012-2018 The MetaModels team.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -20,8 +20,8 @@
  * @author     Stefan Heimes <stefan_heimes@hotmail.com>
  * @author     Christopher Boelter <christopher@boelter.eu>
  * @author     Ingolf Steinhardt <info@e-spin.de>
- * @copyright  2012-2017 The MetaModels team.
- * @license    https://github.com/MetaModels/filter_text/blob/master/LICENSE LGPL-3.0
+ * @copyright  2012-2018 The MetaModels team.
+ * @license    https://github.com/MetaModels/filter_text/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
  */
 
@@ -33,6 +33,7 @@ use MetaModels\Filter\Rules\Condition\ConditionOr;
 use MetaModels\Filter\Rules\SearchAttribute;
 use MetaModels\Filter\Rules\StaticIdList;
 use MetaModels\FrontendIntegration\FrontendFilterOptions;
+use MetaModels\IMetaModel;
 
 /**
  * Filter "text field" for FE-filtering, based on filters by the MetaModels team.
@@ -95,6 +96,7 @@ class Text extends SimpleLookup
     {
         $objMetaModel  = $this->getMetaModel();
         $objAttribute  = $objMetaModel->getAttributeById($this->get('attr_id'));
+        $arrLanguages  = $this->getAvailableLanguages($objMetaModel);
         $strParamName  = $this->getParamName();
         $strParamValue = $arrFilterUrl[$strParamName];
 
@@ -120,7 +122,7 @@ class Text extends SimpleLookup
         }
 
         if ($objAttribute && $strParamName && $strParamValue !== null) {
-            $objFilter->addFilterRule(new SearchAttribute($objAttribute, $strWhat));
+            $objFilter->addFilterRule(new SearchAttribute($objAttribute, $strWhat, $arrLanguages));
 
             return;
         }
@@ -143,10 +145,11 @@ class Text extends SimpleLookup
     {
         $objMetaModel  = $this->getMetaModel();
         $objAttribute  = $objMetaModel->getAttributeById($this->get('attr_id'));
+        $arrLanguages  = $this->getAvailableLanguages($objMetaModel);
         $strParamName  = $this->getParamName();
         $strParamValue = $arrFilterUrl[$strParamName];
         $parentFilter  = null;
-        $words         = array();
+        $words         = [];
 
         // Type of search.
         switch ($strTextSearch) {
@@ -167,7 +170,7 @@ class Text extends SimpleLookup
         if ($objAttribute && $strParamName && $strParamValue !== null && $parentFilter) {
             foreach ($words as $word) {
                 $subFilter = $objMetaModel->getEmptyFilter();
-                $subFilter->addFilterRule(new SearchAttribute($objAttribute, '%' . $word . '%'));
+                $subFilter->addFilterRule(new SearchAttribute($objAttribute, '%' . $word . '%', $arrLanguages));
                 $parentFilter->addChild($subFilter);
             }
 
@@ -207,33 +210,33 @@ class Text extends SimpleLookup
     ) {
         // If defined as static, return nothing as not to be manipulated via editors.
         if (!$this->enableFEFilterWidget()) {
-            return array();
+            return [];
         }
 
         if (!($attribute = $this->getFilteredAttribute())) {
-            return array();
+            return [];
         }
 
-        $arrReturn = array();
+        $arrReturn = [];
         $this->addFilterParam($this->getParamName());
 
         // Text search.
-        $arrCount  = array();
-        $arrWidget = array(
-            'label'     => array(
+        $arrCount  = [];
+        $arrWidget = [
+            'label'     => [
                 $this->getLabel(),
                 'GET: ' . $this->getParamName()
-            ),
+            ],
             'inputType' => 'text',
             'count'     => $arrCount,
             'showCount' => $objFrontendFilterOptions->isShowCountValues(),
-            'eval'      => array(
+            'eval'      => [
                 'colname'     => $attribute->getColname(),
                 'urlparam'    => $this->getParamName(),
                 'template'    => $this->get('template'),
                 'placeholder' => $this->get('placeholder'),
-            )
-        );
+            ]
+        ];
 
         // Add filter.
         $arrReturn[$this->getParamName()] =
@@ -247,7 +250,7 @@ class Text extends SimpleLookup
      */
     public function getParameterDCA()
     {
-        return array();
+        return [];
     }
 
     /**
@@ -263,5 +266,19 @@ class Text extends SimpleLookup
     private function addFilterParam($strParam)
     {
         $GLOBALS['MM_FILTER_PARAMS'][] = $strParam;
+    }
+
+    /**
+     * Get available langauges.
+     *
+     * @param IMetaModel $objMetaModel The metamodel.
+     *
+     * @return array|null|\string[]
+     */
+    private function getAvailableLanguages(IMetaModel $objMetaModel)
+    {
+        return ($objMetaModel->isTranslated() && $this->get('all_langs'))
+            ? $objMetaModel->getAvailableLanguages()
+            : [$objMetaModel->getActiveLanguage()];
     }
 }
