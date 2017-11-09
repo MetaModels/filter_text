@@ -11,7 +11,7 @@
  * This project is provided in good faith and hope to be usable by anyone.
  *
  * @package    MetaModels
- * @subpackage FilterText
+ * @subpackage FilterTextBundle
  * @author     Christian de la Haye <service@delahaye.de>
  * @author     Andreas Isaak <info@andreas-isaak.de>
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
@@ -40,6 +40,7 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['textsearch'] = array
     'label'     => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['textsearch'],
     'exclude'   => true,
     'inputType' => 'select',
+    'sql'       => 'varchar(32) NOT NULL default \'\'',
     'options'   => array('exact', 'beginswith', 'endswith', 'any', 'all'),
     'reference' => $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references'],
     'eval'      => array('tl_class' => 'w50', 'includeBlankOption' => true, 'submitOnChange' => true)
@@ -50,6 +51,7 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['delimiter'] = array
     'label'     => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['delimiter'],
     'exclude'   => true,
     'inputType' => 'text',
+    'sql'       => 'varchar(255) NOT NULL default \'\'',
     'eval'      => array('tl_class' => 'w50')
 );
 
@@ -58,5 +60,6 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['placeholder'] = arra
     'label'     => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['placeholder'],
     'exclude'   => true,
     'inputType' => 'text',
+    'sql'       => 'varchar(255) NOT NULL default \'\'',
     'eval'      => array('tl_class' => 'w50')
 );

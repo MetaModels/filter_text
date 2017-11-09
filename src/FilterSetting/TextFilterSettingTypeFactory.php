@@ -11,7 +11,7 @@
  * This project is provided in good faith and hope to be usable by anyone.
  *
  * @package    MetaModels
- * @subpackage FilterText
+ * @subpackage FilterTextBundle
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @author     Christopher Boelter <christopher@boelter.eu>
  * @author     Marc Reimann <reimann@mediendepot-ruhr.de>
@@ -21,7 +21,9 @@
  * @filesource
  */
 
-namespace MetaModels\Filter\Setting;
+namespace MetaModels\FilterTextBundle\FilterSetting;
+
+use MetaModels\Filter\Setting\AbstractFilterSettingTypeFactory;
 
 /**
  * Attribute type factory for text filter settings.
@@ -37,8 +39,8 @@ class TextFilterSettingTypeFactory extends AbstractFilterSettingTypeFactory
 
         $this
             ->setTypeName('text')
-            ->setTypeIcon('system/modules/metamodelsfilter_text/html/filter_text.png')
-            ->setTypeClass('MetaModels\Filter\Setting\Text')
+            ->setTypeIcon('metamodelsfiltertext/filter_text.png')
+            ->setTypeClass(Text::class)
             ->allowAttributeTypes(
                 'longtext',
                 'text',
