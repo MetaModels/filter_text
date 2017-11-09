@@ -34,7 +34,7 @@ class TextFilterSettingTypeRendererListener extends AbstractFilterSettingTypeRen
      */
     protected function getTypes()
     {
-        return ['tags'];
+        return ['text'];
     }
 
     /**
