@@ -39,7 +39,7 @@ class TextFilterSettingTypeFactory extends AbstractFilterSettingTypeFactory
 
         $this
             ->setTypeName('text')
-            ->setTypeIcon('metamodelsfiltertext/filter_text.png')
+            ->setTypeIcon('bundles/metamodelsfiltertext/filter_text.png')
             ->setTypeClass(Text::class)
             ->allowAttributeTypes(
                 'longtext',
