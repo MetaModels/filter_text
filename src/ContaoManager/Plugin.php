@@ -43,7 +43,7 @@ class Plugin implements BundlePluginInterface
                         MetaModelsCoreBundle::class
                     ]
                 )
-                ->setReplace(['metamodelsfilter_tags'])
+                ->setReplace(['metamodelsfilter_text'])
         ];
     }
 }

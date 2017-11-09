@@ -58,9 +58,6 @@
   "extra": {
     "contao-manager-plugin": "MetaModels\\FilterTextBundle\\ContaoManager\\Plugin",
     "contao": {
-      "sources": {
-        "contao": "system/modules/metamodelsfilter_text"
-      },
       "transifex": {
         "project": "metamodels",
         "prefix": "filter_text-",
