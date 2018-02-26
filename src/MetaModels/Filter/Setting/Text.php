@@ -79,7 +79,7 @@ class Text extends SimpleLookup
                 $this->doComplexSearch($strTextSearch, $objFilter, $arrFilterUrl);
                 break;
             case 'regexp':
-                $this->doRegexpSearch($strTextSearch, $objFilter, $arrFilterUrl);
+                $this->doRegexpSearch($objFilter, $arrFilterUrl);
         }
     }
 
@@ -202,15 +202,13 @@ class Text extends SimpleLookup
     /**
      * Make a simple search with a regexp.
      *
-     * @param string   $strTextSearch The mode for the search.
-     *
      * @param IFilter  $objFilter     The filter to append the rules to.
      *
      * @param string[] $arrFilterUrl  The parameters to evaluate.
      *
      * @return void
      */
-    private function doRegexpSearch($strTextSearch, $objFilter, $arrFilterUrl)
+    private function doRegexpSearch($objFilter, $arrFilterUrl)
     {
         $objMetaModel  = $this->getMetaModel();
         $objAttribute  = $objMetaModel->getAttributeById($this->get('attr_id'));
@@ -226,10 +224,11 @@ class Text extends SimpleLookup
             $strRegex = sprintf($strPattern, $strParamValue);
 
             $strQuery = sprintf(
-                    'SELECT id FROM %s WHERE %s REGEXP \'%s\'',
-                    $objMetaModel->getTableName(),
-                    $objAttribute->getColName(),
-                    $strRegex);
+                'SELECT id FROM %s WHERE %s REGEXP \'%s\'',
+                $objMetaModel->getTableName(),
+                $objAttribute->getColName(),
+                $strRegex
+            );
 
             $objFilter->addFilterRule(new SimpleQuery($strQuery));
 
