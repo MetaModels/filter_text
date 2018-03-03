@@ -26,7 +26,8 @@
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['metapalettes']['text extends default'] = array
 (
-    '+config' => array('attr_id', 'urlparam', 'label', 'template', 'textsearch', 'placeholder'),
+    '+config'   => array('attr_id'),
+    '+fefilter' => array('urlparam', 'label', 'template', 'textsearch', 'placeholder')
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['metasubselectpalettes']['textsearch'] = array
