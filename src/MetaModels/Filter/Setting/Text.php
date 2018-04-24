@@ -20,6 +20,7 @@
  * @author     Stefan Heimes <stefan_heimes@hotmail.com>
  * @author     Christopher Boelter <christopher@boelter.eu>
  * @author     Ingolf Steinhardt <info@e-spin.de>
+ * @author     Ronny Binder <rb@byteworks.ch>
  * @copyright  2012-2018 The MetaModels team.
  * @license    https://github.com/MetaModels/filter_text/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
@@ -122,7 +123,7 @@ class Text extends SimpleLookup
                 break;
         }
 
-        if ($objAttribute && $strParamName && $strParamValue !== null) {
+        if ($objAttribute && $strParamName && strlen($strParamValue)) {
             $objFilter->addFilterRule(new SearchAttribute($objAttribute, $strWhat));
 
             return;
@@ -167,7 +168,7 @@ class Text extends SimpleLookup
                 break;
         }
 
-        if ($objAttribute && $strParamName && $strParamValue !== null && $parentFilter) {
+        if ($objAttribute && $strParamName && strlen($strParamValue) && $parentFilter) {
             foreach ($words as $word) {
                 $subFilter = $objMetaModel->getEmptyFilter();
                 $subFilter->addFilterRule(new SearchAttribute($objAttribute, '%' . $word . '%'));
@@ -216,7 +217,7 @@ class Text extends SimpleLookup
         $strParamValue = $arrFilterUrl[$strParamName];
         $strPattern    = $this->get('pattern');
 
-        if ($objAttribute && $strParamName && $strParamValue !== null) {
+        if ($objAttribute && $strParamName && strlen($strParamValue)) {
             if (empty($strPattern) || substr_count($strPattern, '%s') != 1) {
                 $strPattern = '%s';
             }
