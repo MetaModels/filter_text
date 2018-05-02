@@ -111,16 +111,16 @@ class Text extends SimpleLookup
         // Type of search.
         switch ($strTextSearch) {
             case 'beginswith':
-                $strWhat = $strParamValue . '%';
+                $strWhat = $strParamValue . '*';
                 break;
             case 'endswith':
-                $strWhat = '%' . $strParamValue;
+                $strWhat = '*' . $strParamValue;
                 break;
             case 'exact':
                 $strWhat = $strParamValue;
                 break;
             default:
-                $strWhat = '%' . $strParamValue . '%';
+                $strWhat = '*' . $strParamValue . '*';
                 break;
         }
 
