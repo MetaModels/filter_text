@@ -66,6 +66,11 @@ class Text extends SimpleLookup
      */
     public function prepareRules(IFilter $objFilter, $arrFilterUrl)
     {
+        if (empty($arrFilterUrl[$this->getParamName()])) {
+            $objFilter->addFilterRule(new StaticIdList(null));
+            return;
+        }
+
         $strTextSearch = $this->get('textsearch');
         switch ($strTextSearch) {
             case 'beginswith':
