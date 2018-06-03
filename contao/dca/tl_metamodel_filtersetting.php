@@ -33,7 +33,8 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['metasubselectpalettes']['texts
 (
     'any'    => array('delimiter'),
     'all'    => array('delimiter'),
-    'regexp' => array('pattern')
+    'regexp' => array('pattern'),
+    'sql'    => 'varchar(32) NOT NULL default \'\''
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['textsearch'] = array
@@ -43,7 +44,8 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['textsearch'] = array
     'inputType' => 'select',
     'options'   => array('exact', 'beginswith', 'endswith', 'any', 'all', 'regexp'),
     'reference' => $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references'],
-    'eval'      => array('tl_class' => 'w50', 'includeBlankOption' => true, 'submitOnChange' => true)
+    'eval'      => array('tl_class' => 'w50', 'includeBlankOption' => true, 'submitOnChange' => true),
+    'sql'       => 'varchar(255) NOT NULL default \'\''
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['delimiter'] = array
@@ -51,7 +53,8 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['delimiter'] = array
     'label'     => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['delimiter'],
     'exclude'   => true,
     'inputType' => 'text',
-    'eval'      => array('tl_class' => 'w50')
+    'eval'      => array('tl_class' => 'w50'),
+    'sql'       => 'varchar(255) NOT NULL default \'\''
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['pattern'] = array
@@ -64,7 +67,8 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['pattern'] = array
         {
             return !empty($varValue) ? $varValue : '%s';
         },
-    'eval'      => array('tl_class' => 'w50', 'mandatory' => true, 'preserveTags' => true)
+    'eval'      => array('tl_class' => 'w50', 'mandatory' => true, 'preserveTags' => true),
+    'sql'       => 'varchar(255) NOT NULL default \'\''
 );
 
 $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['placeholder'] = array
@@ -72,5 +76,6 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['placeholder'] = arra
     'label'     => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['placeholder'],
     'exclude'   => true,
     'inputType' => 'text',
-    'eval'      => array('tl_class' => 'w50')
+    'eval'      => array('tl_class' => 'w50'),
+    'sql'       => 'varchar(255) NOT NULL default \'\''
 );
