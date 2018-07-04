@@ -19,7 +19,7 @@
  * @filesource
  */
 
-namespace MetaModels\Test\Filter\Setting;
+namespace MetaModels\FilterTextBundle\Test\FilterSetting;
 
 use MetaModels\Attribute\IAttribute;
 use MetaModels\Filter\IFilter;
@@ -27,9 +27,9 @@ use MetaModels\Filter\IFilterRule;
 use MetaModels\Filter\Rules\SearchAttribute;
 use MetaModels\Filter\Rules\StaticIdList;
 use MetaModels\Filter\Setting\ICollection;
-use MetaModels\Filter\Setting\Text;
+use MetaModels\FilterTextBundle\FilterSetting\Text;
+use MetaModels\FilterTextBundle\Test\Helper\Closure;
 use MetaModels\IMetaModel;
-use MetaModels\Test\Helper\Closure;
 use PHPUnit\Framework\TestCase;
 
 /**
