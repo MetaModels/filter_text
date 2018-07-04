@@ -13,6 +13,7 @@
  * @package    MetaModels
  * @subpackage FilterText
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @copyright  2012-2018 The MetaModels team.
  * @license    https://github.com/MetaModels/filter_text/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
@@ -28,6 +29,7 @@ use MetaModels\Filter\Rules\StaticIdList;
 use MetaModels\Filter\Setting\ICollection;
 use MetaModels\Filter\Setting\Text;
 use MetaModels\IMetaModel;
+use MetaModels\Test\Helper\Closure;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -50,7 +52,7 @@ class TextTest extends TestCase
                     'urlparam' => 'filtername'
                 ],
                 [],
-                \Closure::fromCallable(function (IFilterRule $filterRule) {
+                Closure::fromCallable(function (IFilterRule $filterRule) {
                     $this->assertInstanceOf(StaticIdList::class, $filterRule);
                     $this->assertSame(null, $filterRule->getMatchingIds());
                 })
@@ -62,7 +64,7 @@ class TextTest extends TestCase
                 [
                     'filtername' => ''
                 ],
-                \Closure::fromCallable(function (IFilterRule $filterRule) {
+                Closure::fromCallable(function (IFilterRule $filterRule) {
                     $this->assertInstanceOf(StaticIdList::class, $filterRule);
                     $this->assertSame(null, $filterRule->getMatchingIds());
                 })
@@ -76,7 +78,7 @@ class TextTest extends TestCase
                 [
                     'filtername' => '  '
                 ],
-                \Closure::fromCallable(function (IFilterRule $filterRule) {
+                Closure::fromCallable(function (IFilterRule $filterRule) {
                     $this->assertInstanceOf(SearchAttribute::class, $filterRule);
                     $refl = new \ReflectionProperty(SearchAttribute::class, 'strValue');
                     $refl->setAccessible(true);
@@ -92,7 +94,7 @@ class TextTest extends TestCase
                 [
                     'filtername' => 'herb'
                 ],
-                \Closure::fromCallable(function (IFilterRule $filterRule) {
+                Closure::fromCallable(function (IFilterRule $filterRule) {
                     $this->assertInstanceOf(SearchAttribute::class, $filterRule);
                     $refl = new \ReflectionProperty(SearchAttribute::class, 'strValue');
                     $refl->setAccessible(true);
@@ -108,7 +110,7 @@ class TextTest extends TestCase
                 [
                     'filtername' => 'herb'
                 ],
-                \Closure::fromCallable(function (IFilterRule $filterRule) {
+                Closure::fromCallable(function (IFilterRule $filterRule) {
                     $this->assertInstanceOf(SearchAttribute::class, $filterRule);
                     $refl = new \ReflectionProperty(SearchAttribute::class, 'strValue');
                     $refl->setAccessible(true);
@@ -124,7 +126,7 @@ class TextTest extends TestCase
                 [
                     'filtername' => 'herb'
                 ],
-                \Closure::fromCallable(function (IFilterRule $filterRule) {
+                Closure::fromCallable(function (IFilterRule $filterRule) {
                     $this->assertInstanceOf(SearchAttribute::class, $filterRule);
                     $refl = new \ReflectionProperty(SearchAttribute::class, 'strValue');
                     $refl->setAccessible(true);
@@ -140,7 +142,7 @@ class TextTest extends TestCase
                 [
                     'filtername' => 'herb'
                 ],
-                \Closure::fromCallable(function (IFilterRule $filterRule) {
+                Closure::fromCallable(function (IFilterRule $filterRule) {
                     $this->assertInstanceOf(SearchAttribute::class, $filterRule);
                     $refl = new \ReflectionProperty(SearchAttribute::class, 'strValue');
                     $refl->setAccessible(true);
