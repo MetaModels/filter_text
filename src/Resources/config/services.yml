@@ -1,6 +1,9 @@
 services:
     metamodels.filter_text.factory:
         class: MetaModels\FilterTextBundle\FilterSetting\TextFilterSettingTypeFactory
+        arguments:
+          - '@event_dispatcher'
+          - '@MetaModels\Filter\FilterUrlBuilder'
         tags:
           - { name: metamodels.filter_factory }
 
