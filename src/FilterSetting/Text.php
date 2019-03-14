@@ -24,7 +24,7 @@
  * @filesource
  */
 
-namespace MetaModels\Filter\Setting;
+namespace MetaModels\FilterTextBundle\FilterSetting;
 
 use MetaModels\Filter\IFilter;
 use MetaModels\Filter\Rules\Condition\ConditionAnd;
@@ -32,6 +32,7 @@ use MetaModels\Filter\Rules\Condition\ConditionOr;
 use MetaModels\Filter\Rules\SearchAttribute;
 use MetaModels\Filter\Rules\SimpleQuery;
 use MetaModels\Filter\Rules\StaticIdList;
+use MetaModels\Filter\Setting\SimpleLookup;
 use MetaModels\FrontendIntegration\FrontendFilterOptions;
 use MetaModels\IMetaModel;
 

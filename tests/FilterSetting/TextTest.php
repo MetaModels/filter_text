@@ -18,18 +18,20 @@
  * @filesource
  */
 
-namespace MetaModels\Test\Filter\Setting;
+namespace MetaModels\FilterTextBundle\Test\FilterSetting;
 
 use MetaModels\Attribute\IAttribute;
+use MetaModels\Filter\FilterUrlBuilder;
 use MetaModels\Filter\IFilter;
 use MetaModels\Filter\IFilterRule;
 use MetaModels\Filter\Rules\SearchAttribute;
 use MetaModels\Filter\Rules\StaticIdList;
 use MetaModels\Filter\Setting\ICollection;
-use MetaModels\Filter\Setting\Text;
+use MetaModels\FilterTextBundle\FilterSetting\Text;
+use MetaModels\FilterTextBundle\Test\Helper\Closure;
 use MetaModels\IMetaModel;
-use MetaModels\Test\Helper\Closure;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * This tests the text filter.
@@ -180,7 +182,10 @@ class TextTest extends TestCase
         $collection = $this->getMockBuilder(ICollection::class)->getMock();
         $collection->method('getMetaModel')->willReturn($metaModel);
 
-        $text = new Text($collection, $configuration);
+        $eventDispatcher  = $this->getMockForAbstractClass(EventDispatcherInterface::class);
+        $filterUrlBuilder = $this->getMockBuilder(FilterUrlBuilder::class)->disableOriginalConstructor()->getMock();
+
+        $text = new Text($collection, $configuration, $eventDispatcher, $filterUrlBuilder);
 
         $filter = $this
             ->getMockBuilder(IFilter::class)

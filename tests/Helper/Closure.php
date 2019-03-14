@@ -17,7 +17,7 @@
  * @filesource
  */
 
-namespace MetaModels\Test\Helper;
+namespace MetaModels\FilterTextBundle\Test\Helper;
 
 /**
  * This class is a polyfill for use the Closure class < php 7.1

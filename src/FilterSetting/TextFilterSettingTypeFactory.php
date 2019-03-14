@@ -20,7 +20,11 @@
  * @filesource
  */
 
-namespace MetaModels\Filter\Setting;
+namespace MetaModels\FilterTextBundle\FilterSetting;
+
+use MetaModels\Filter\FilterUrlBuilder;
+use MetaModels\Filter\Setting\AbstractFilterSettingTypeFactory;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Attribute type factory for text filter settings.
@@ -28,16 +32,30 @@ namespace MetaModels\Filter\Setting;
 class TextFilterSettingTypeFactory extends AbstractFilterSettingTypeFactory
 {
     /**
+     * The event dispatcher.
+     *
+     * @var EventDispatcherInterface
+     */
+    private $dispatcher;
+
+    /**
+     * The filter URL builder.
+     *
+     * @var FilterUrlBuilder
+     */
+    private $filterUrlBuilder;
+
+    /**
      * {@inheritDoc}
      */
-    public function __construct()
+    public function __construct(EventDispatcherInterface $dispatcher, FilterUrlBuilder $filterUrlBuilder)
     {
         parent::__construct();
 
         $this
             ->setTypeName('text')
-            ->setTypeIcon('system/modules/metamodelsfilter_text/html/filter_text.png')
-            ->setTypeClass('MetaModels\Filter\Setting\Text')
+            ->setTypeIcon('bundles/metamodelsfiltertext/filter_text.png')
+            ->setTypeClass(Text::class)
             ->allowAttributeTypes(
                 'longtext',
                 'text',
@@ -45,5 +63,16 @@ class TextFilterSettingTypeFactory extends AbstractFilterSettingTypeFactory
                 'translatedlongtext',
                 'combinedvalues'
             );
+
+        $this->dispatcher       = $dispatcher;
+        $this->filterUrlBuilder = $filterUrlBuilder;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function createInstance($information, $filterSettings)
+    {
+        return new Text($filterSettings, $information, $this->dispatcher, $this->filterUrlBuilder);
     }
 }

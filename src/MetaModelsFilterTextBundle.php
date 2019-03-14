@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of MetaModels/filter_text.
  *
@@ -11,21 +12,18 @@
  *
  * @package    MetaModels/filter_text
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
- * @author     Christopher Boelter <christopher@boelter.eu>
  * @copyright  2012-2019 The MetaModels team.
  * @license    https://github.com/MetaModels/filter_text/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
  */
 
-use MetaModels\Filter\Setting\Events\CreateFilterSettingFactoryEvent;
-use MetaModels\Filter\Setting\TextFilterSettingTypeFactory;
-use MetaModels\MetaModelsEvents;
+namespace MetaModels\FilterTextBundle;
 
-return array
-(
-    MetaModelsEvents::FILTER_SETTING_FACTORY_CREATE => array(
-        function (CreateFilterSettingFactoryEvent $event) {
-            $event->getFactory()->addTypeFactory(new TextFilterSettingTypeFactory());
-        }
-    )
-);
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+/**
+ * The Bundle class.
+ */
+class MetaModelsFilterTextBundle extends Bundle
+{
+}
