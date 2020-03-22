@@ -22,6 +22,7 @@ mapping:
   'Ingolf Steinhardt <info@e-spin.de>':
     - 'xantippe <info@e-spin.de>'
     - 'zonky2 <info@e-spin.de>'
+    - 'zonky <gitlab@e-spin.de>'
 
 copy-left:
   'Christoph Wiechert <christoph.wiechert@4wardmedia.de>': popup.php
