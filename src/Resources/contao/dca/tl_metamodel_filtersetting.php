@@ -31,7 +31,8 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['metapalettes']['text extends d
         'hide_label',
         'template',
         'textsearch',
-        'placeholder'
+        'placeholder',
+        'cssID'
     ]
 ];
 
