@@ -47,7 +47,7 @@ $GLOBALS['TL_DCA']['tl_metamodel_filtersetting']['fields']['textsearch'] = [
     'exclude'   => true,
     'inputType' => 'select',
     'options'   => ['exact', 'beginswith', 'endswith', 'any', 'all', 'regexp'],
-    'reference' => $GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references'],
+    'reference' => &$GLOBALS['TL_LANG']['tl_metamodel_filtersetting']['references'],
     'sql'       => 'varchar(32) NOT NULL default \'\'',
     'eval'      => ['tl_class' => 'w50', 'includeBlankOption' => true, 'submitOnChange' => true]
 ];
