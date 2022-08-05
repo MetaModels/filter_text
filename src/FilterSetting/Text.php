@@ -3,7 +3,7 @@
 /**
  * This file is part of MetaModels/filter_text.
  *
- * (c) 2012-2022 The MetaModels team.
+ * (c) 2012-2019 The MetaModels team.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,7 +19,7 @@
  * @author     Stefan Heimes <stefan_heimes@hotmail.com>
  * @author     Christopher Boelter <christopher@boelter.eu>
  * @author     Ingolf Steinhardt <info@e-spin.de>
- * @copyright  2012-2022 The MetaModels team.
+ * @copyright  2012-2019 The MetaModels team.
  * @license    https://github.com/MetaModels/filter_text/blob/master/LICENSE LGPL-3.0-or-later
  * @filesource
  */
@@ -103,7 +103,7 @@ class Text extends SimpleLookup
     private function doSimpleSearch($strTextSearch, $objFilter, $arrFilterUrl)
     {
         $objMetaModel  = $this->getMetaModel();
-        $objAttribute  = $objMetaModel->getAttributeById((int) $this->get('attr_id'));
+        $objAttribute  = $objMetaModel->getAttributeById($this->get('attr_id'));
         $arrLanguages  = $this->getAvailableLanguages($objMetaModel);
         $strParamName  = $this->getParamName();
         $strParamValue = $arrFilterUrl[$strParamName];
@@ -152,7 +152,7 @@ class Text extends SimpleLookup
     private function doComplexSearch($strTextSearch, $objFilter, $arrFilterUrl)
     {
         $objMetaModel  = $this->getMetaModel();
-        $objAttribute  = $objMetaModel->getAttributeById((int) $this->get('attr_id'));
+        $objAttribute  = $objMetaModel->getAttributeById($this->get('attr_id'));
         $arrLanguages  = $this->getAvailableLanguages($objMetaModel);
         $strParamName  = $this->getParamName();
         $strParamValue = $arrFilterUrl[$strParamName];
@@ -219,7 +219,7 @@ class Text extends SimpleLookup
     private function doRegexpSearch($objFilter, $arrFilterUrl)
     {
         $objMetaModel  = $this->getMetaModel();
-        $objAttribute  = $objMetaModel->getAttributeById((int) $this->get('attr_id'));
+        $objAttribute  = $objMetaModel->getAttributeById($this->get('attr_id'));
         $strParamName  = $this->getParamName();
         $strParamValue = $arrFilterUrl[$strParamName];
         $strPattern    = $this->get('pattern');
