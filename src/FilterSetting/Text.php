@@ -130,7 +130,9 @@ class Text extends SimpleLookup
         }
 
         if ($objAttribute && $strParamName) {
-            $objFilter->addFilterRule(new SearchAttribute($objAttribute, $strWhat, $arrLanguages));
+            $objFilter->addFilterRule(
+                new SearchAttribute($objAttribute, $strWhat, \array_values(\array_filter($arrLanguages)))
+            );
 
             return;
         }
@@ -177,7 +179,9 @@ class Text extends SimpleLookup
         if ($objAttribute && $strParamName && $parentFilter) {
             foreach ($words as $word) {
                 $subFilter = $objMetaModel->getEmptyFilter();
-                $subFilter->addFilterRule(new SearchAttribute($objAttribute, '%' . $word . '%', $arrLanguages));
+                $subFilter->addFilterRule(
+                    new SearchAttribute($objAttribute, '%' . $word . '%', \array_values(\array_filter($arrLanguages)))
+                );
                 $parentFilter->addChild($subFilter);
             }
 
