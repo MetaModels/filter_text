@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="src/Resources/translations/tl_metamodel_filtersetting.en.xlf">
+    <body>
+      <trans-unit id="typenames.text" resname="typenames.text">
+        <source>Text filter</source>
+      </trans-unit>
+      <trans-unit id="textsearch.label" resname="textsearch.label">
+        <source>Search type</source>
+      </trans-unit>
+      <trans-unit id="textsearch.description" resname="textsearch.description">
+        <source>Finding text parts.</source>
+      </trans-unit>
+      <trans-unit id="delimiter.label" resname="delimiter.label">
+        <source>Delimeter</source>
+      </trans-unit>
+      <trans-unit id="delimiter.description" resname="delimiter.description">
+        <source>Set delimeter for search type "any" or "all" - default delimeter is space.</source>
+      </trans-unit>
+      <trans-unit id="pattern.label" resname="pattern.label">
+        <source>Regexp pattern</source>
+      </trans-unit>
+      <trans-unit id="pattern.description" resname="pattern.description">
+        <source>Set the "https://dev.mysql.com/doc/refman/5.6/en/regexp.html" with only one placeholder "%s" for your search string. See at MySQL regexp for more information.</source>
+      </trans-unit>
+      <trans-unit id="references.exact" resname="references.exact">
+        <source>exact search</source>
+      </trans-unit>
+      <trans-unit id="references.beginswith" resname="references.beginswith">
+        <source>begins with search term</source>
+      </trans-unit>
+      <trans-unit id="references.endswith" resname="references.endswith">
+        <source>ends with search term</source>
+      </trans-unit>
+      <trans-unit id="references.any" resname="references.any">
+        <source>search any word (OR)</source>
+      </trans-unit>
+      <trans-unit id="references.all" resname="references.all">
+        <source>search all words (AND)</source>
+      </trans-unit>
+      <trans-unit id="references.regexp" resname="references.regexp">
+        <source>Regexp pattern</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
