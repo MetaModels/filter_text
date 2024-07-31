@@ -33,6 +33,7 @@ use MetaModels\FilterTextBundle\Test\Helper\Closure;
 use MetaModels\IMetaModel;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * This tests the text filter.
@@ -190,8 +191,9 @@ class TextTest extends TestCase
 
         $eventDispatcher  = $this->getMockForAbstractClass(EventDispatcherInterface::class);
         $filterUrlBuilder = $this->getMockBuilder(FilterUrlBuilder::class)->disableOriginalConstructor()->getMock();
+        $translator       = $this->getMockForAbstractClass(TranslatorInterface::class);
 
-        $text = new Text($collection, $configuration, $eventDispatcher, $filterUrlBuilder);
+        $text = new Text($collection, $configuration, $eventDispatcher, $filterUrlBuilder, $translator);
 
         $filter = $this
             ->getMockBuilder(IFilter::class)
