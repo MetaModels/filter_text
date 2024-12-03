@@ -274,6 +274,8 @@ class Text extends SimpleLookup
         assert(\is_string($paramName));
         $this->addFilterParam($paramName);
 
+        $cssID = StringUtil::deserialize($this->get('cssID'), true);
+
         // Text search.
         $arrCount  = [];
         $arrWidget = [
@@ -289,6 +291,9 @@ class Text extends SimpleLookup
                 'urlparam'    => $paramName,
                 'template'    => $this->get('template'),
                 'placeholder' => $this->get('placeholder'),
+                'hide_label'  => $this->get('hide_label'),
+                'cssID'       => !empty($cssID[0]) ? ' id="' . $cssID[0] . '"' : '',
+                'class'       => !empty($cssID[1]) ? ' ' . $cssID[1] : '',
             ]
         ];
 
