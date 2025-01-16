@@ -4,6 +4,7 @@ services:
         arguments:
           - '@event_dispatcher'
           - '@MetaModels\Filter\FilterUrlBuilder'
+          - '@translator'
         tags:
           - { name: metamodels.filter_factory }
 
